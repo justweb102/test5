@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Тестовое приложение</title>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta charset="utf-8" />
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+
+
+    
+    
+    
+    <script src="js/jquery.min.js"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="js/bootstrap/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="js/bootstrap/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    
+    <!-- 15-колоночные классы -->
+    <link href="css/bootstrap_col_15.css" rel="stylesheet" />
+    
+    
+	<link href="css/style.css" rel="stylesheet" />
+    <link href="css/media.css" rel="stylesheet" />
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i&amp;subset=cyrillic" rel="stylesheet" />-->
+      
+    
+    
+    
+    <!-- Оверлей мобильного меню -->
+    <script>
+    $(document).ready(function(){
+        $('button.navbar-toggle').click(function(){
+            $('.navbar-overlay').toggle(true);
+            $('body').toggleClass('noscroll');
+        });
+        
+        $('.navbar-overlay').click(function(){
+            $('.navbar-collapse').removeClass('in');
+            $('.navbar-overlay').toggle();
+            $('body').toggleClass('noscroll');
+        });
+    });
+    </script>
+    <!-- Оверлей мобильного меню -->
+    
+    
+    
+    
+
+    <!-- fancyBox -->
+    <link rel="stylesheet" href="js/fancyBox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="js/fancyBox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".fancybox").fancybox();
+        });
+    </script>
+    <!-- fancyBox -->
+    
+    
+    
+<!-- owl -->
+    <link rel="stylesheet" href="js/owl/owl.carousel.css" />
+    <!--<link rel="stylesheet" href="/js/owl/owl.theme.css" />-->
+    <script src="js/owl/owl.carousel.js"></script>
+    
+    <!-- owl-adv -->
+    <script>
+        $(document).ready(function(){
+            $(".slider1").owlCarousel({
+				autoPlay:5000,
+                loop: true,
+                navigation : true, // Show next and prev buttons
+                slideSpeed : 300,
+                paginationSpeed : 400,
+                singleItem:true,
+                navigationText : false
+            });
+            
+            $(".slider-partners").owlCarousel({
+				autoPlay:3000,
+                loop: true,
+                navigation : true, // Show next and prev buttons
+                slideSpeed : 300,
+                paginationSpeed : 400,
+                items : 4,
+                itemsDesktop : false,
+                itemsDesktopSmall : false,
+                itemsTablet: [768,2],
+                itemsMobile : [479,1],
+                autoHeight : true,
+                navigationText : false
+            });
+            
+            
+            $(".slider-review").owlCarousel({
+				autoPlay:5000,
+                loop: true,
+                navigation : true, // Show next and prev buttons
+                slideSpeed : 300,
+                paginationSpeed : 400,
+                singleItem:true,
+                navigationText : false
+            });
+
+        });
+    </script>
+    <!-- owl-adv-1 -->
+    
+<!-- owl -->
+
+
+
+    <!-- плавный скролл -->
+    <script>
+        $(document).ready(function() {
+            $("a.scroll").click(function () {
+                var elementClick = $(this).attr("href")
+                var destination = $(elementClick).offset().top;
+                jQuery("html:not(:animated),body:not(:animated)").animate({scrollTop: destination - 0}, 800);
+                return false;
+            });
+        });
+    </script>
+    <!-- плавный скролл -->
+    
+    
+    
+<!-- Маска для телефона -->
+<script src="js/jquery.maskedinput.js" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery(function($){
+   $('input[name="tel"]').mask("+7 (999) 999-9999");
+});
+</script>
+<!-- Маска для телефона -->
+
+
+
+<!-- Адаптивное меню -->
+	<link rel="stylesheet" href="js/slicknav/slicknav.css" />
+	<script src="js/slicknav/jquery.slicknav.js"></script>
+	<script>
+	$(function(){
+		$('.menu-top').slicknav({
+			label: 'Меню'
+		});
+	});
+    </script>
+    
+	<script>
+	$(document).ready(function(){
+		addInfoLeft = '<div class="mob-header-logo">' + $('.top-cards').html() + '</div>';
+        addMenu2 = '<div class="menu2">' + $('.menu2').html() + '</div>';
+
+		$('.slicknav_menu').prepend( addInfoLeft );
+        $('.slicknav_nav').append( addMenu2 );
+
+		// делаем отступ контента от нашей фиксированной меню - в примере #wrapper
+		//$('#wrapper').css({'padding-top' : $('.slicknav_menu').outerHeight() + 'px' });
+	});
+	</script>
+<!-- Адаптивное меню -->
+
+
+
+    <!-- плавный скролл на якорь -->
+    <script>
+        $(document).ready(function() {
+            $("a.scroll").click(function () {
+                var elementClick = $(this).attr("href")
+                var destination = $(elementClick).offset().top;
+                jQuery("html:not(:animated),body:not(:animated)").animate({scrollTop: destination - 0}, 800);
+                return false;
+            });
+        });
+    </script>
+    <!-- плавный скролл на якорь -->
+    
+    
+    
+<!-- Отправка заявок -->
+<script type='text/javascript'>
+    $(document).ready(function(){
+        $('#fb .submit').click(function(e){
+            e.preventDefault();
+ 
+            var error = false;
+            
+            var fio = $('#fb-fio').val();
+            var tel = $('#fb-tel').val();
+            
+            
+            if(fio.length == 0){
+                var error = true;
+                $('#fb-fio').addClass('input-error');
+            }else{
+                $('#fb-fio').removeClass('input-error');
+            }
+            
+            if(tel.length == 0){
+                var error = true;
+                $('#fb-tel').addClass('input-error');
+            }else{
+                $('#fb-tel').removeClass('input-error');
+            }
+            
+            if(error == false){
+                $.post("js/fb-send.php", $("#fb").serialize(),function(result){
+                    $('#fb-wrapper').html('<div class="good-mail"><span style="font-size:30px;">Спасибо за заявку!</span><br /><br /><span style="font-size:18px;">В ближайшее время мы позвоним Вам.</span></div>');
+                });
+            }
+        });
+        
+        
+        
+        $('#fm .submit').click(function(e){
+            e.preventDefault();
+ 
+            var error = false;
+            
+            var fio = $('#fm-fio').val();
+            var tel = $('#fm-tel').val();
+            
+            
+            if(fio.length == 0){
+                var error = true;
+                $('#fm-fio').addClass('input-error');
+            }else{
+                $('#fm-fio').removeClass('input-error');
+            }
+            
+            if(tel.length == 0){
+                var error = true;
+                $('#fm-tel').addClass('input-error');
+            }else{
+                $('#fm-tel').removeClass('input-error');
+            }
+            
+            if(error == false){
+                $.post("js/fb-send.php", $("#fm").serialize(),function(result){
+                    $('#fm-wrapper').html('<div class="good-mail"><span style="font-size:30px;">Спасибо за заявку!</span><br /><br /><span style="font-size:18px;">В ближайшее время мы позвоним Вам.</span></div>');
+                });
+            }
+        });
+        
+        
+        
+        $('#question-form .submit').click(function(e){
+            e.preventDefault();
+ 
+            var error = false;
+            
+            var text = $('#fq-text').val();
+            
+            
+            if(text.length == 0){
+                var error = true;
+                $('#fq-text').addClass('input-error');
+            }else{
+                $('#fq-text').removeClass('input-error');
+            }
+            
+            if(error == false){
+                $.post("js/fq-send.php", $("#question-form").serialize(),function(result){
+                    $('#question-form').html('<div class="good-mail"><span style="font-size:30px;">Спасибо за заявку!</span><br /><br /><span style="font-size:18px;">В ближайшее время мы позвоним Вам.</span></div>');
+                });
+            }
+        });
+        
+        
+        
+        
+        
+        
+    });
+</script>
+<!-- Отправка заявок -->
+
+
+
+
+
+
+
+    
+</head>
+
+<body>
+    <!--<div class="app">
+        <h1>PhoneGap</h1>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
+        </div>
+    </div>-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div class="top-bar only-display">
+    <div class="container">
+        <div class="top-cards">
+            <img src="images/ico-mastercard.png" class="tc-mastercard"/>
+            <img src="images/ico-visa.png" class="tc-visa" />
+        </div>
+        <div class="menu-top">
+            <ul>
+                <li><a href="#" class="menutop-item-1">Регистрация инструмента</a></li>
+                <li><a href="#" class="menutop-item-2">Доставка</a></li>
+                <li><a href="#" class="menutop-item-3">Гарантия</a></li>
+                <li><a href="#" class="menutop-item-4">Сервисный центр </a></li>
+                <li><a href="#" class="menutop-item-5">Контакты</a></li>
+                <li><a href="#" class="menutop-item-6">Личный кабинет</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="block-top-red">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <a href="/">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-6">
+                            <div class="logo-img">
+                                <img src="images/logo.png" />
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6">
+                            <div class="logo-legend">
+                                ФИРМЕННЫЙ
+                                <br />
+                                МАГАЗИН
+                                <br />
+                                MILWAUKEE
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 width100">
+                <div class="block-top-red-center">
+                    <div class="block-top-red-tel">
+                        +7 (495) 660-39-90
+                    </div>
+                    <div class="block-top-red-legend">
+                        Режим работы: Круглосуточно
+                    </div>
+                    <div class="block-top-red-search">
+                        <form>
+                            <input type="text" placeholder="Поиск по сайту" />
+                            <a href="#" class="search-submit"></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 width100">
+                <div class="block-top-red-right">
+                    <div class="block-top-red-basket">
+                        <div class="block-top-red-basket-title">
+                            В вашей корзине:
+                        </div>
+                        Товаров: <span class="bold">200 шт.</span>
+                        <br />
+                        На сумму: <span class="bold">200 000 руб.</span>
+                    </div>
+                    <div class="block-top-red-basket-download">
+                        <a href="#">Скачать каталог</a>
+                        <a href="#">Прайс-лист</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="block-1">
+    <div class="container">
+        <div class="menu2">
+            <ul>
+                <li><a href="#"><span class="textformat">КАТАЛОГ</span></a></li>
+                <li><a href="#"><img src="images/menu-1-m12.png" /></a></li>
+                <li><a href="#"><img src="images/menu-2-m12fuel.png" /></a></li>
+                <li><a href="#"><img src="images/menu-3-m14.png" /></a></li>
+                <li><a href="#"><img src="images/menu-4-m18.png" /></a></li>
+                <li><a href="#"><img src="images/menu-5-m18fuel.png" /></a></li>
+                <li><a href="#"><img src="images/menu-6-m28.png" /></a></li>
+            </ul>
+        </div>
+        <div class="slider1">
+            <div class="slider1-item">
+                <img src="images/slide-1.jpg" />
+                <div class="slider1-description">
+                    ОФИЦИАЛЬНЫЙ ДИЛЕР
+                    <br />
+                    MILWAUKEE
+                </div>
+            </div>
+            <div class="slider1-item">
+                <img src="images/slide-1.jpg" />
+                <div class="slider1-description">
+                    ОФИЦИАЛЬНЫЙ ДИЛЕР
+                    <br />
+                    MILWAUKEE
+                </div>
+            </div>
+            <div class="slider1-item">
+                <img src="images/slide-1.jpg" />
+                <div class="slider1-description">
+                    ОФИЦИАЛЬНЫЙ ДИЛЕР
+                    <br />
+                    MILWAUKEE
+                </div>
+            </div>
+                        
+        </div>
+    </div>
+</div>
+
+
+
+<div class="block-promo-products">
+    <div class="block-promo-products-cats">
+        <a href="#" class="button b1 active">Промо наборы</a>
+        <a href="#" class="button b1">Хит продаж</a>
+        <a href="#" class="button b1">Рекомендуем</a>
+    </div>
+    <div class="container">
+        <div class="row row15">
+            <div class="col15-lg-3 col15-md-3 col-sm-6 col-xs-12">
+                <div class="promo-products-item">
+                    <div class="promo-products-item-title">
+                        ТОВАР ПО АКЦИИ
+                    </div>
+                    <div class="promo-products-item-ava">
+                        <img src="images/pic-promo-1.jpg" />
+                    </div>
+                    <div class="promo-products-item-name">
+                        Аккумуляторная дрель-шуруповерт Milwaukee M12 BDD-202C 4933441915
+                    </div>
+                    <div class="promo-products-item-text">
+                        Высокопроизводительная компактная дрель-шуруповерт Milwaukee®, длиной всего 187 мм, идеален для работы в ограниченном пространстве
+                    </div>
+                    <div class="promo-products-item-prices">
+                        <div class="promo-products-item-prices-old">
+                            17 500 р.
+                        </div>
+                        <div class="promo-products-item-prices-new">
+                            12 990 р.
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="promo-products-item-buttons">
+                        <ul>
+                            <li><a href="#" class="promo-products-item-btn1">Купить</a></li>
+                            <li><a href="#" class="promo-products-item-btn2"></a></li>
+                            <li><a href="#" class="promo-products-item-btn3"></a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col15-md-3 col-sm-6 col-xs-12">
+                <div class="promo-products-item">
+                    <div class="promo-products-item-title">
+                        ТОВАР ПО АКЦИИ
+                    </div>
+                    <div class="promo-products-item-ava">
+                        <img src="images/pic-promo-2.jpg" />
+                    </div>
+                    <div class="promo-products-item-name">
+                        Аккумуляторная дрель-шуруповерт Milwaukee M18 BDD-202C 4933443555
+                    </div>
+                    <div class="promo-products-item-text">
+                        Компактная дрель-шуруповерт, длиной всего 185 мм, идеальна для работы в ограниченном пространстве
+                    </div>
+                    <div class="promo-products-item-prices">
+                        <div class="promo-products-item-prices-old">
+                            28 600 р.
+                        </div>
+                        <div class="promo-products-item-prices-new">
+                            19 990 р.
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="promo-products-item-buttons">
+                        <ul>
+                            <li><a href="#" class="promo-products-item-btn1">Купить</a></li>
+                            <li><a href="#" class="promo-products-item-btn2"></a></li>
+                            <li><a href="#" class="promo-products-item-btn3"></a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col15-md-3 col-sm-6 col-xs-12">
+                <div class="promo-products-item">
+                    <div class="promo-products-item-title">
+                        ТОВАР ПО АКЦИИ
+                    </div>
+                    <div class="promo-products-item-ava">
+                        <img src="images/pic-promo-3.jpg" />
+                    </div>
+                    <div class="promo-products-item-name">
+                        Двигатель для алмазного сверления Milwaukee DCM2-250 C 40964
+                    </div>
+                    <div class="promo-products-item-text">
+                        Мощность 2800Вт; хвостовик 1 1/4"UNC; скорость 450/900 об/мин; макс. диаметр сверления 250; вес 9,0; набор ключей; картон
+                    </div>
+                    <div class="promo-products-item-prices">
+                        <div class="promo-products-item-prices-old">
+                            147 400 р.
+                        </div>
+                        <div class="promo-products-item-prices-new">
+                            125 080 р.
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="promo-products-item-buttons">
+                        <ul>
+                            <li><a href="#" class="promo-products-item-btn1">Купить</a></li>
+                            <li><a href="#" class="promo-products-item-btn2"></a></li>
+                            <li><a href="#" class="promo-products-item-btn3"></a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col15-md-3 col-sm-6 col-xs-12">
+                <div class="promo-products-item">
+                    <div class="promo-products-item-title">
+                        ТОВАР ПО АКЦИИ
+                    </div>
+                    <div class="promo-products-item-ava">
+                        <img src="images/pic-promo-4.jpg" />
+                    </div>
+                    <div class="promo-products-item-name">
+                        Аккумуляторная дрель-шуруповерт Milwaukee M12 BDD-202C 4933441915
+                    </div>
+                    <div class="promo-products-item-text">
+                        Высокопроизводительная компактная дрель-шуруповерт Milwaukee®, длиной всего 187 мм, идеален для работы в ограниченном пространстве
+                    </div>
+                    <div class="promo-products-item-prices">
+                        <div class="promo-products-item-prices-old">
+                            17 500 р.
+                        </div>
+                        <div class="promo-products-item-prices-new">
+                            12 990 р.
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="promo-products-item-buttons">
+                        <ul>
+                            <li><a href="#" class="promo-products-item-btn1">Купить</a></li>
+                            <li><a href="#" class="promo-products-item-btn2"></a></li>
+                            <li><a href="#" class="promo-products-item-btn3"></a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col15-md-3 col-sm-6 col-xs-12">
+                <div class="promo-products-item">
+                    <div class="promo-products-item-title">
+                        ТОВАР ПО АКЦИИ
+                    </div>
+                    <div class="promo-products-item-ava">
+                        <img src="images/pic-promo-5.jpg" />
+                    </div>
+                    <div class="promo-products-item-name">
+                        Аккумуляторная дрель-шуруповерт Milwaukee M18 BDD-202C 4933443555
+                    </div>
+                    <div class="promo-products-item-text">
+                        Компактная дрель-шуруповерт, длиной всего 185 мм, идеальна для работы в ограниченном пространстве
+                    </div>
+                    <div class="promo-products-item-prices">
+                        <div class="promo-products-item-prices-old">
+                            28 600 р.
+                        </div>
+                        <div class="promo-products-item-prices-new">
+                            19 990 р.
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="promo-products-item-buttons">
+                        <ul>
+                            <li><a href="#" class="promo-products-item-btn1">Купить</a></li>
+                            <li><a href="#" class="promo-products-item-btn2"></a></li>
+                            <li><a href="#" class="promo-products-item-btn3"></a></li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="pr">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="pr-item pr-item-1">
+                    <span class="big">ТОП 10</span>
+                    <br />
+                    Снижение цен
+                    <br />
+                    на базовый
+                    <br />
+                    инструмент
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="pr-item pr-item-2">
+                    БЕСПЛАТНАЯ
+                    <br />
+                    ДОСТАВКА
+                    <br />
+                    по России
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="pr-item pr-item-3">
+                    ЗАПЧАСТИ
+                    <br />
+                    MILWAKEE
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="pr-item pr-item-4">
+                    <span class="big">ТОП 10</span>
+                    <br />
+                    Снижение цен
+                    <br />
+                    на базовый
+                    <br />
+                    инструмент
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="vitrina">
+    <div class="container">
+        <div class="h1-std">
+            ВИТРИНА МАГАЗИНА
+        </div>
+        <div class="row row15">
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        АККУМУЛЯТОРЫ И ЗАРЯДНЫЕ УСТРОЙСТВА
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-1.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        АЛМАЗНОЕ БУРЕНИЕ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-2.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ГАЙКОВЕРТЫ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-3.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ДРЕЛИ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-4.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ИЗМЕРИТЕЛЬНЫЕ ПРИБОРЫ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-5.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        КЛЕЕВЫЕ ПИСТОЛЕТЫ И ШПРИЦЫ ДЛЯ СМАЗКИ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-6.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ЛОБЗИКИ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-7.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        НАБОРЫ ИНСТРУМЕНТОВ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-8.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ОТБОЙНЫЕ МОЛОТКИ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-9.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ПЕРФОРАТОРЫ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-10.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ПИЛЫ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-11.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        РАСХОДНЫЕ МАТЕРИАЛЫ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-12.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        СИСТЕМЫ ПЫЛЕУДАЛЕНИЯ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-13.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        УГЛОВЫЕ ШЛИФОВАЛЬНЫЕ МАШИНЫ (БОЛГАРКИ)
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-14.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ФРЕЗЕРЫ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-15.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ШЛИФОВАЛЬНЫЕ МАШИНЫ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-16.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ШТРОБОРЕЗЫ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-17.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ШУРУПОВЕРТЫ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-18.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ОДЕЖДА
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-19.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="col15-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="vitrina-item">
+                    <div class="vitrina-item-name">
+                        ДРУГОЕ
+                    </div>
+                    <div class="vitrina-item-ava">
+                        <img src="images/vitrina-item-20.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="block-news">
+    <div class="container">
+        <div class="h1-std">
+            НОВОСТИ
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="block-news-item">
+                    <div class="block-news-item-ava">
+                        <img src="images/pic-news-1.jpg" />
+                    </div>
+                    <div class="block-news-item-name">
+                        САМЫЕ ДОЛГОВЕЧНЫЕ МАГНИТНЫЕ РУЛЕТКИ НА РЫНКЕ
+                    </div>
+                    <div class="block-news-item-anons">
+                        Компания Milwaukee® с гордостью представляет линей ...»
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="block-news-item">
+                    <div class="block-news-item-ava">
+                        <img src="images/pic-news-2.jpg" />
+                    </div>
+                    <div class="block-news-item-name">
+                        MILWAUKEE ПРОДОЛЖИТ РАЗВИТИЕ ЛИНЕЙКИ КРЕПЕЖНОГО ИНСТРУМЕНТА M18 FUEL
+                    </div>
+                    <div class="block-news-item-anons">
+                        Компания Milwaukee® объявляет о дальнейшем развити ...»
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="block-news-item">
+                    <div class="block-news-item-ava">
+                        <img src="images/pic-news-3.jpg" />
+                    </div>
+                    <div class="block-news-item-name">
+                        ПРОШЛА ВЫСТАВКА MILWAUKEE В РОСТОВЕ
+                    </div>
+                    <div class="block-news-item-anons">
+                        Выставка профессионального инструмента Milwaukee 2 ...»
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="block-about">
+    <div class="container">
+        <h3>ФИРМЕННЫЙ МАГАЗИН MILWAUKEE - САЙТ ОФИЦИАЛЬНОГО ДИЛЕРА ИНСТРУМЕНТА МИЛУОКИ В РОССИИ</h3>
+        <p>Официальный дилер производителя инструмента Milwaukee. Качественный и долговечный инструмент Милуоки создан специально для профессионалов.</p>
+        <p>Высокий уровень точности обработки поверхностей, лёгкие конструкции и удобные рукоятки, мощные двигатели, низкий уровень шума и вибрации – характеристики инструментов Милуоки, которые были разработаны производителем для комфорта профессионалов, работающих в строительстве, а также для людей, применяющих инструменты для бытовых целей. Особенно выгодны и удобны в использовании наборы Milwaukee.</p>
+        <p>Широкий выбор оборудования и расходных материалов Милвоки для строительства обеспечит вам удобство и легкость подбора необходимых инструментов. В каталоге Милуоки представлены несколько видов каждого инструмента: дрели как аккумуляторные, так и сетевые, пилы – аккумуляторные, сабельные, ленточные, циркулярные и другие.</p>
+        <p>Для бурения (сверления) плотных стеновых или бетонных конструкций у нас в наличии алмазные дрели, специальные установки для работ в узких местах и под углом. Так же для работ с бетоном и камнем представлены отбойные молотки, которые помогут комфортно проводить работы даже под углом, благодаря системе выбора положения долота из 12 вариантов.</p>
+        <p>Долговечное и бесперебойное использование инструментов Milwaukee обеспечивается разработанными компанией аккумуляторами и зарядными устройствами. Аккумуляторы имеют интеллектуальную систему защиты от перегрузок и перегрева, что защитит от нежелательных остановок. Зарядные системы достаточно быстро заряжаются и обеспечивают работу в течение дня.</p>
+        <p>В нашем магазине Milwaukee RUS представлены более чем 3 500 наименований инструментов класса Heavy Duty и около 4 000 аксессуаров. В наличии перфораторы, шлифмашины, фрезеры, лобзики, клеевые пистолеты, шуруповерты, гайковерты и расходные материалы – коронки, сверла и многие другие.</p>
+        <p>Купив электроинструмент Milwaukee, вы можете получить расширенную гарантию до 3 лет и бесплатную доставку по России. По любым вопросам по инструменту Милуоки вас подробно проконсультируют наши менеджеры.</p>
+        <div class="block-about-img">
+            <img src="images/pic-about.jpg" />
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Футер -->
+<div class="footer">
+    <div class="container">
+        <div class="row row15">
+            <div class="col15-lg-3 col15-md-3 col15-sm-3 col-xs-12">
+                <div class="footer-logo">
+                    <a href="/"><img src="images/logo2.png" /></a>
+                </div>
+            </div>
+            <div class="col15-lg-3 col15-md-3 col15-sm-3 col-xs-6">
+                <div class="footer-menu">
+                    <div class="footer-menu-title">
+                        Информация
+                    </div>
+                    <a href="#">О нас</a>
+                    <br />
+                    <a href="#">Информация о доставке</a>
+                </div>
+            </div>
+            <div class="col15-lg-3 col15-md-3 col15-sm-3 col-xs-6">
+                <div class="footer-menu">
+                    <div class="footer-menu-title">
+                        Служба поддержки
+                    </div>
+                    <a href="#">Связаться с нами</a>
+                    <br />
+                    <a href="#">Карта сайта</a>
+                </div>
+            </div>
+            <div class="col15-lg-3 col15-md-3 col15-sm-3 col-xs-6">
+                <div class="footer-menu">
+                    <div class="footer-menu-title">
+                        Дополнительно
+                    </div>
+                    <a href="#">Milwaukee</a>
+                    <br />
+                    <a href="#">Промо наборы</a>
+                    <br />
+                    <a href="#">Новинки</a>
+                </div>
+            </div>
+            <div class="col15-lg-3 col15-md-3 col15-sm-3 col-xs-6">
+                <div class="footer-menu">
+                    <div class="footer-menu-title">
+                        Личный Кабинет
+                    </div>
+                    <a href="#">Личный Кабинет</a>
+                    <br />
+                    <a href="#">История заказов</a>
+                    <br />
+                    <a href="#">Закладки</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            MilwaukeeRus — официальный дилер Milwaukee в России &copy; 2017
+        </div>
+    </div>
+</div>
+<!-- Футер -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Модальная форма -->
+<div style="display:none;">
+<div id="form-modal-wrapper">
+    <div class="form-map" id="fm-wrapper">
+        <div class="form-map-title">
+            Начните получать
+            <br />
+            клиентов из поиска
+        </div>
+        <form id="fm">
+            <input type="text" name="fio" id="fm-fio" placeholder="Имя" />
+            <input type="text" name="tel" id="fm-tel" placeholder="Телефон" />
+            <input type="text" name="email" id="fm-email" placeholder="E-mail" />
+            <textarea name="text" id="fm-text" placeholder="Напишите ваш вопрос или сообщение"></textarea>
+            <div class="form-map-submit">
+                <a href="#" class="button b1 submit">Отправить</a>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<!-- Модальная форма -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+</body>
+
+</html>
